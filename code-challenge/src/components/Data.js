@@ -38,7 +38,7 @@ fetchData(); // Call the async function
   return (
     <div>
       <h2>Transactions</h2>
-      <table style={{ width: '90%', borderCollapse: 'collapse' }}>
+      <table style={{ width: '85%', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
             <th>Date</th>

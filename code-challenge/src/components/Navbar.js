@@ -40,10 +40,10 @@ function Navbar() {
 
   const handleSubmitData = submitData.map((data, index) => (
     <div key={index}>
-      <p>{data.date}</p>
-      <p>{data.description}</p>
-      <p>{data.category}</p>
-      <p>{data.amount}</p>
+      {data.date}
+      {data.description}
+      {data.category}
+      {data.amount}
     </div>
   ));
 

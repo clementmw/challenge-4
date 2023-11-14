@@ -1,51 +1,77 @@
-import React, {useState} from 'react'
-import '../css/Navbar.css'
-import NewData from './NewData'
+import React, { useState } from 'react';
+import '../css/Navbar.css';
+import NewData from './NewData';
 
 function Navbar() {
-  const [date, setDate] = useState('')
-  const [description, setDesrption] = useState('cake')
-  const [category, setCategory] = useState('banana')
-  const [amount, setAmount] = useState('200')
+  const [date, setDate] = useState('');
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('');
+  const [amount, setAmount] = useState('');
+  const [submitData, setSubmitData] = useState([]);
 
   const handleDate = (e) => {
-    setDate(e.target.value)
-  }
-  const handleDescrption = (e) => {
-    setDesrption(e.target.value)
-  }
+    setDate(e.target.value);
+  };
+
+  const handleDescription = (e) => {
+    setDescription(e.target.value);
+  };
+
   const handleCategory = (e) => {
-    setCategory(e.target.value)
-  }
+    setCategory(e.target.value);
+  };
+
   const handleAmount = (e) => {
-    setAmount(e.target.value)
-  }
+    setAmount(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = { date: date, description: description, category: category, amount: amount };
+    const newArray = [...submitData, formData];
+    setSubmitData(newArray);
+
+    // Clear the input fields after submission
+    setDate('');
+    setDescription('');
+    setCategory('');
+    setAmount('');
+  };
+
+  const handleSubmitData = submitData.map((data, index) => (
+    <div key={index}>
+      <p>{data.date}</p>
+      <p>{data.description}</p>
+      <p>{data.category}</p>
+      <p>{data.amount}</p>
+    </div>
+  ));
+
   return (
     <div>
-        <h1>The Royal Bank of Flatiron</h1>
+      <h1>The Royal Bank of Flatiron</h1>
 
-        <div className="container">
+      <div className="container">
         <input type='text' placeholder='Search your recent transactions ....' />
         <button type='button'>Search</button>
-    </div>
-    <span >
+      </div>
+
+      <span>
         <NewData
           date={date}
           description={description}
           category={category}
           amount={amount}
           handleDate={handleDate}
-          handleDescription={handleDescrption}
+          handleDescription={handleDescription}
           handleCategory={handleCategory}
           handleAmount={handleAmount}
+          handleSubmit={handleSubmit}
+          handleSubmitData={handleSubmitData}
         />
-        
-        
-    </span>
-    <button className='red'>Add Transaction</button>
-    <button className='blue'>Delete Transaction</button>
+      </span>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

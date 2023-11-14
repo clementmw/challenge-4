@@ -49,8 +49,7 @@ fetchData(); // Call the async function
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody>{showData}
-         </tbody>
+        <tbody>{showData}</tbody>
       </table>
     </div>
   );

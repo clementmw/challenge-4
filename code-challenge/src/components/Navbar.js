@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../css/Navbar.css';
 import NewData from './NewData';
 
+
 function Navbar() {
   const [date, setDate] = useState('');
   const [description, setDescription] = useState('');
@@ -24,7 +25,7 @@ function Navbar() {
   const handleAmount = (e) => {
     setAmount(e.target.value);
   };
-
+   // to handle form 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = { date: date, description: description, category: category, amount: amount };
@@ -55,7 +56,7 @@ function Navbar() {
         <input type='text' placeholder='Search your recent transactions ....' />
         <button type='button'>Search</button>
       </div>
-
+{/* the data to be passed as props */}
       <span>
         <NewData
           date={date}
@@ -69,6 +70,7 @@ function Navbar() {
           handleSubmit={handleSubmit}
           handleSubmitData={handleSubmitData}
         />
+      
       </span>
     </div>
   );

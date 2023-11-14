@@ -11,7 +11,7 @@ function NewData(props) {
         <button type='submit' className='red'>Add Transaction</button>
         <button type='submit'className='blue'>Delete Transaction</button>
 
-        {props.handleSubmitData}
+         {props.handleSubmitData}
       </form>
     </div>
   );

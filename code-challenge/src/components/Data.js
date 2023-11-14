@@ -1,5 +1,7 @@
 // Data.js
 import React, { useEffect, useState } from 'react';
+import NewData from './NewData';
+import Navbar from './Navbar';
 
 function Data() {
   const [transactions, setTransactions] = useState([]);
@@ -47,7 +49,8 @@ fetchData(); // Call the async function
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody>{showData}</tbody>
+        <tbody>{showData}
+         </tbody>
       </table>
     </div>
   );

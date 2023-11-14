@@ -1,0 +1,36 @@
+/* Add your styles here */
+
+h1 {
+    color: blue;
+    border: solid 2px #0000FF;
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .container {
+    margin-bottom: 10px;
+  }
+  
+  .container input[type='text'] {
+    margin-left: 50px;
+  }
+  
+  .container input[type='date'],
+  .container input[type='text'] {
+    margin-left: 10px;
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+  
+  button.blue {
+    color: blue;
+    margin-left: 10px;
+  }
+  
+  button.red {
+    color: red;
+   
+  }
+  

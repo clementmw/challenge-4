@@ -1,24 +1,49 @@
-import React from 'react'
+import React, {useState} from 'react'
+import '../css/Navbar.css'
+import NewData from './NewData'
 
 function Navbar() {
+  const [date, setDate] = useState('')
+  const [description, setDesrption] = useState('cake')
+  const [category, setCategory] = useState('banana')
+  const [amount, setAmount] = useState('200')
+
+  const handleDate = (e) => {
+    setDate(e.target.value)
+  }
+  const handleDescrption = (e) => {
+    setDesrption(e.target.value)
+  }
+  const handleCategory = (e) => {
+    setCategory(e.target.value)
+  }
+  const handleAmount = (e) => {
+    setAmount(e.target.value)
+  }
   return (
     <div>
-        <h1 style={{color: 'blue', border: "solid 2px #0000FF", margin: '20px', textAlign:'center'}}>The Royal Bank of Flatiron</h1>
-      
-      <div style={{marginBottom: '10px'}} >
+        <h1>The Royal Bank of Flatiron</h1>
+
+        <div className="container">
         <input type='text' placeholder='Search your recent transactions ....' />
         <button type='button'>Search</button>
     </div>
     <span >
-        <form>
-        <input type='date' style={{marginLeft: '50px'}} />
-        <input type='text.' placeholder='Description' style={{marginLeft: '10px'}} />
-        <input type='text' placeholder='Categoty'style={{marginLeft: '10px'}}  />
-        <input type='text' placeholder='Amount' style={{marginLeft: '10px'}} />
-        </form>
+        <NewData
+          date={date}
+          description={description}
+          category={category}
+          amount={amount}
+          handleDate={handleDate}
+          handleDescription={handleDescrption}
+          handleCategory={handleCategory}
+          handleAmount={handleAmount}
+        />
+        
+        
     </span>
-    <button style={{marginTop: '10px', color: 'blue'}}>Add Transaction</button>
-
+    <button className='red'>Add Transaction</button>
+    <button className='blue'>Delete Transaction</button>
     </div>
   )
 }

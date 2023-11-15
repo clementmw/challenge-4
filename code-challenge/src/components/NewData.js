@@ -1,6 +1,24 @@
 import React from 'react';
 
 function NewData(props) {
+
+  const handleDelete = (index) => {
+    const updatedData = [...props.handleSubmitData];
+    updatedData.splice(index, 1); // Remove the item at the specified index
+    props.setSubmitData(updatedData); // Update the state with the new array
+  };
+  const handleSubmitData = props.handleSubmitData.map((data, index) => (
+    <div key={index}>
+      {data.date}
+      {data.description}
+      {data.category}
+      {data.amount}
+      <button type='button' className='blue' onClick={() => handleDelete(index)}>
+        Delete
+      </button>
+    </div>
+  ));
+
   return (
     <div>
       <form onSubmit={props.handleSubmit}>
@@ -9,7 +27,7 @@ function NewData(props) {
         <input type='text' placeholder='Category' value={props.category} onChange={props.handleCategory} />
         <input type='text' placeholder='Amount' value={props.amount} onChange={props.handleAmount} />
         <button type='submit' className='red'>Add Transaction</button>
-        <button type='submit'className='blue'>Delete Transaction</button>
+        <button type='button'className='blue'onClick={handleDelete}>Delete Transaction</button>
 
          {props.handleSubmitData}
       </form>

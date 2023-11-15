@@ -69,6 +69,8 @@ function Navbar() {
           handleAmount={handleAmount}
           handleSubmit={handleSubmit}
           handleSubmitData={handleSubmitData}
+          submitData={submitData}
+          setSubmitData={setSubmitData}
         />
       
       </span>

@@ -22,7 +22,7 @@ fetchData(); // Call the async function
   }, []); // Empty dependency array ensures the effect runs once after the initial render
 
   function getTransactions(){
-    return fetch ('http://localhost:3000/transactions')
+    return fetch ('https://my-json-server.typicode.com/clementmw/phase-1-functions-lab')
     .then (response => response.json())
     .then (data => data);
   }
